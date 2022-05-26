@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+        Task Manager API Guide.
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1> Task Manager API guide.</h1>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th>URL</th>
+                      <th>Requst Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>'/'</td>
+                      <td>GET</td>
+                      <td>Index page</td>
+                    </tr>
+                    <tr>
+                      <td>'/users'</td>
+                      <td>POST</td>
+                      <td>To insert new user data.<br> Required : Json data with 'name', 'email' and 'password'.<br>
+                          Returns : Bearer authentication token and saved user data as json response.</td>
+                    </tr>
+                    <tr>
+                      <td>'/users/login'</td>
+                      <td>POST</td>
+                      <td>To login a user.<br> Required : Json data with 'email' and valid password.<br>
+                        Returns : Bearer authentication token and saved user data as json response.</td>
+                    </tr>
+                    <tr>
+                      <td>'/users/me/avatar'</td>
+                      <td>POST</td>
+                      <td>To upload Avatar for user.<br> Required : Form-data value 'avatar' with .jpeg/.jpg file attached to it. And an Authorization bearer token of logged in user.<br>
+                        Returns : - NA -</td>
+                    </tr>
+                    <tr>
+                      <td>'/users/logout'</td>
+                      <td>POST</td>
+                      <td>To logout current session of user.<br> Required : An Authorization bearer token of logged in user.<br>
+                        Returns : - NA -</td>
+                    </tr>
+                    <tr>
+                      <td>'/users/logoutAll'</td>
+                      <td>POST</td>
+                      <td>To logout all the sessions of user.<br> Required : An Authorization bearer token of logged in user.<br>
+                        Returns : - NA -</td>
+                    </tr>
+                    <tr>
+                      <td>'/tasks'</td>
+                      <td>POST</td>
+                      <td>To create task for a user.<br> Required : An Authorization bearer token of logged in user. A json body with 'description' and 'completed'(optional) properties.<br>
+                        Returns : Json response of saved task.</td>
+                    </tr>
+                    <tr>
+                      <td>'/users/me'</td>
+                      <td>GET</td>
+                      <td>To read the user profile.<br> Required : An Authorization bearer token of logged in user.<br>
+                        Returns : Json data with user profile.</td>
+                    </tr>
+                    <tr>
+                      <td>'/tasks'</td>
+                      <td>GET</td>
+                      <td>To read tasks of the user.<br> Required : An Authorization bearer token of logged in user. Prams like 'completed', 'limit', 'skip', 'sortBy' for Searching, Sorting and Pagination. <br>
+                        Returns : Json data with searched tasks.</td>
+                    </tr>
+                    <tr>
+                      <td>'/tasks/{task-id}'</td>
+                      <td>GET</td>
+                      <td>To read task with its ID.<br> Required : An Authorization bearer token of logged in user. <br>
+                        Returns : Json data with searched task.</td>
+                    </tr>
+                    <tr>
+                      <td>'/users/me'</td>
+                      <td>PATCH</td>
+                      <td>To update data for user.<br> Required : An Authorization bearer token of logged in user. A Json containing valid updates. <br>
+                        Returns : Json data with updated user.</td>
+                    </tr>
+                    <tr>
+                      <td>'/tasks/{task-id}'</td>
+                      <td>PATCH</td>
+                      <td>To update task with its ID.<br> Required : An Authorization bearer token of logged in user. A Json containing valid updates. <br>
+                        Returns : Json data with updated task.</td>
+                    </tr>
+                    <tr>
+                      <td>'/users/me'</td>
+                      <td>DELETE</td>
+                      <td>To delete a user profile.<br> Required : An Authorization bearer token of logged in user. <br>
+                        Returns : Json data of deleted user.</td>
+                    </tr>
+                    <tr>
+                      <td>'/tasks/{task-id}'</td>
+                      <td>DELETE</td>
+                      <td>To delete a task by ID.<br> Required : An Authorization bearer token of logged in user. <br>
+                        Returns : Json data of deleted task.</td>
+                    </tr>
+                    <tr>
+                      <td>'/users/me/avatar'</td>
+                      <td>DELETE</td>
+                      <td>To delete a user's avatar.<br> Required : An Authorization bearer token of logged in user. <br>
+                        Returns : - NA -</td>
+                    </tr>
+
+
+                  </tbody>
+            </table>
+            
+        </div>
+    </body>
+</html>
